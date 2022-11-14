@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="bg-lightgrayishcyan font-sanserif">
+  
+  <div class="container mx-auto">
+    <section class="text-center max-w-sm mx-auto py-10">
+      <img src="./images/logo.svg" alt="splitter logo" class="mx-auto">
+    </section>
+
+    <section class="w-full px-6 py-8 min-h-5/6 rounded-t-2xl bg-white md:flex md:justify-between md:p-10 md:mb-10 md:rounded-3xl">
+      <div class="md:w-[47%]">
+        <form action="">
+          <div>
+            <label for="bill" class="text-darkgrayishcyan">Bill</label>
+            <p class="relative">
+              <img src="./images/icon-dollar.svg" alt="dollar" class="absolute left-4 bottom-6">
+              <input type="text" 
+              name="bill" 
+              id="bill" 
+              placeholder="0" 
+              class="py-1 px-4 text-right bg-verylightgrayishcyan w-full text-verydarkcyan my-2 cursor-pointer rounded-sm hover:border-2 hover:border-strongcyan">
+            </p>
+          </div>
+
+          <div class="my-6">
+            <p class="text-darkgrayishcyan">Select Tip %</p>
+            <section class="flex gap-4 justify-between flex-wrap my-4">
+              <input disabled type="text" value="5%" id="tip5" class="bg-verydarkcyan text-center text-2xl text-white rounded-md py-2 cursor-pointer w-[47%] hover:bg-lightgrayishcyan md:w-[30%]">
+              <input disabled type="text" value="10%" id="tip10" class="bg-verydarkcyan text-center text-2xl text-white rounded-md py-2 cursor-pointer w-[47%] hover:bg-lightgrayishcyan md:w-[30%]">
+              <input disabled type="text" value="15%" id="tip15" class="bg-verydarkcyan text-center text-2xl text-white rounded-md py-2 cursor-pointer w-[47%] hover:bg-lightgrayishcyan md:w-[30%]">
+              <input disabled type="text" value="20%" id="tip20" class="bg-verydarkcyan text-center text-2xl text-white rounded-md py-2 cursor-pointer w-[47%] hover:bg-lightgrayishcyan md:w-[30%]">
+              <input disabled type="text" value="25%" id="tip25" class="bg-verydarkcyan text-center text-2xl text-white rounded-md py-2 cursor-pointer w-[47%] hover:bg-lightgrayishcyan md:w-[30%]">
+              <input id="custom" type="text" placeholder="Custom" class="bg-verylightgrayishcyan rounded-md text-right placeholder:text-darkgrayishcyan py-2 px-4 w-[47%] md:w-[30%]">
+            </section>
+          </div>
+
+          <div class="mb-6">
+            <label for="people" class="text-darkgrayishcyan">Number of People</label>
+            <p class="relative">
+              <img src="./images/icon-person.svg" alt="dollar" class="absolute left-4 bottom-6">
+              <input type="text" name="people" id="people" placeholder="0" class="py-1 px-4 text-right text-verydarkcyan cursor-pointer bg-verylightgrayishcyan w-full my-2 rounded-sm">
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="bg-verydarkcyan p-4 rounded-2xl flex flex-col gap-4 md:w-[47%] md:justify-between md:p-8">
+        <div class="flex flex-col gap-6">
+          <section class="flex justify-between items-center">
+            <div>
+              <p class="text-white">Tip Amount</p>
+              <span class="text-darkgrayishcyan">/ Person</span>
+            </div>
+
+            <div>
+              <h1 class="text-3xl text-strongcyan md:text-4xl">$4.27</h1>
+            </div>
+          </section>
+
+          <section class="flex justify-between items-center">
+            <div>
+              <p class="text-white">Total</p>
+              <span class="text-darkgrayishcyan">/ Person</span>
+            </div>
+
+            <div>
+              <h1 class="text-3xl text-strongcyan md:text-4xl">$32.79</h1>
+            </div>
+          </section>
+        </div>
+
+        <button id="reset" class="bg-strongcyan font-bold py-3 text-verydarkcyan rounded-lg text-lg hover:bg-lightgrayishcyan">RESET</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="./index.js"></script>
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>

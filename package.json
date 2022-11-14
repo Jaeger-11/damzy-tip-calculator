@@ -1,0 +1,15 @@
+{
+  "name": "tip-calculator-damzy",
+  "version": "1.0.0",
+  "description": "Tip calculator (frontend mentor challenge built with typescript and tailwindCSS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./input.css -o ./css/main.css --watch"
+  },
+  "author": "Oluwadamilola Falodun",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.8.4"
+  }
+}
