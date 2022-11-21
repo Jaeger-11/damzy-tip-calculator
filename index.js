@@ -87,7 +87,6 @@ bill.addEventListener('change',() => {
         tipAmount.innerHTML = `$${tip}`;
         totalAmount.innerHTML = `$${total}`;
     }
-    
 })
 
 people.addEventListener('change', () => {
@@ -107,7 +106,6 @@ people.addEventListener('change', () => {
         tipAmount.innerHTML = `$${((tipPercent/100) * billValue * peopleCount).toFixed(2)}`
         totalAmount.innerHTML = `$${(((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)}`
     }
-    
 })
 
 // Function to reset the bill
