@@ -36,19 +36,43 @@ document.querySelectorAll('.percent').forEach((percent) => {
         }
         tipPercent = Number(percent.innerHTML.replace('%', ''))
         tip = ((tipPercent/100) * billValue * peopleCount).toFixed(2)
-        total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)
-        console.log(tipPercent, billValue, tip, total);
-        
+        total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)        
         tipAmount.innerHTML = `$${tip}`;
         totalAmount.innerHTML = `$${total}`;
-        
     })
+})
+
+custom.addEventListener('change', () => {
+    tipPercent = Number(custom.value);
+    if(isNaN(customValue)){
+        alert("Input a numeric figure")
+    }
+    peopleCount = Number(people.value)
+    if (isNaN(peopleCount)){
+        warning.innerHTML = "number only";
+        warning.style.display = 'block';
+        people.style.border = 'rgb(239 68 68) 2px solid';
+    } else if(peopleCount === 0) {
+        warning.innerHTML = "Can't be zero";
+        warning.style.display = 'block';
+        people.style.border = 'rgb(239 68 68) 2px solid';
+    } else {
+        warning.style.display = 'hidden'
+        warning.innerHTML = ''
+        people.style.border = 'none'
+    }
+    tip = ((tipPercent/100) * billValue * peopleCount).toFixed(2)
+    total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)        
+    tipAmount.innerHTML = `$${tip}`;
+    totalAmount.innerHTML = `$${total}`;
 })
 
 bill.addEventListener('change',() => {
     billValue = Number(bill.value);
     if(isNaN(billValue)){
         alert("Input a numeric figure")
+        tipAmount.innerHTML = `$0.00`;
+        totalAmount.innerHTML = `$0.00`;
     }
     if( billValue != 0 ){
         reset.style.opacity = '1';
@@ -57,11 +81,13 @@ bill.addEventListener('change',() => {
         reset.style.opacity = "0.2";
         reset.style.cursor = "auto";
     }
-    tip = ((tipPercent/100) * billValue * peopleCount).toFixed(2)
-    total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)
-    console.log(tipPercent, billValue, tip, total);
-    tipAmount.innerHTML = `$${tip}`;
-    totalAmount.innerHTML = `$${total}`;
+    if ( peopleCount && tipPercent){
+        tip = ((tipPercent/100) * billValue * peopleCount).toFixed(2)
+        total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)
+        tipAmount.innerHTML = `$${tip}`;
+        totalAmount.innerHTML = `$${total}`;
+    }
+    
 })
 
 people.addEventListener('change', () => {
@@ -80,7 +106,6 @@ people.addEventListener('change', () => {
         people.style.border = 'none'
         tipAmount.innerHTML = `$${((tipPercent/100) * billValue * peopleCount).toFixed(2)}`
         totalAmount.innerHTML = `$${(((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)}`
-        console.log(tipAmount.innerHTML);
     }
     
 })
