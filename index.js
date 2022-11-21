@@ -12,16 +12,45 @@ const tipAmount = document.querySelector('#tipAmount');
 const totalAmount = document.querySelector('#totalAmount');
 let billValue;
 let peopleCount;
+let tipPercent;
+let tip;
+let total;
 document.querySelectorAll('.percent').forEach((percent) => {
     percent.addEventListener("click", () => {
+        reset.style.opacity = '1';
+        reset.style.cursor = "pointer";
+        percent.classList.add('bg-strongcyan')
+        let otherPercents = [...document.querySelectorAll(".percent")].filter(btn => {return btn != percent})
+        otherPercents.forEach((otherpercent) => {
+            otherpercent.classList.remove('bg-strongcyan')
+        })
         const percentValue = Number(percent.innerHTML.replace('%', ''))
-        console.log(percentValue)
+        tipPercent = percentValue
+
+        // if (percentValue === 5){
+        //     console.log('5%');
+        // } else if (percentValue === 10) {
+        //     console.log('10%')
+        // } else if (percentValue === 15) {
+        //     console.log('15%')
+        // } else if (percentValue === 20) {
+        //     console.log('20%')
+        // } else if (percentValue === 25) {
+        //     console.log('25%')
+        // }
     })
 })
 
 bill.addEventListener('change',() => {
     billValue = Number(bill.value);
-    console.log(billValue)
+    if( billValue != 0 ){
+        reset.style.opacity = '1';
+        reset.style.cursor = "pointer";
+    } else {
+        reset.style.opacity = "0.2";
+        reset.style.cursor = "auto";
+    }
+ 
 })
 
 people.addEventListener('change', () => {
@@ -39,14 +68,20 @@ people.addEventListener('change', () => {
         warning.style.display = 'hidden'
         warning.innerHTML = ''
         people.style.border = 'none'
-
     }
 })
 
 // Function to reset the bill
 reset.addEventListener('click', () => {
-    bill.value = '0';
-    people.value = '0';
+    if(people.value !== '' || bill.value !== ''){
+        bill.value = '0';
+        people.value = '0';
+        reset.style.opacity = "0.2";
+        reset.style.cursor = "auto";
+    } else {
+        reset.style.opacity = '1';
+        reset.style.cursor = "pointer";
+    }
 })
 
 
