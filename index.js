@@ -20,6 +20,7 @@ document.querySelectorAll('.percent').forEach((percent) => {
         otherPercents.forEach((otherpercent) => {
             otherpercent.classList.remove('bg-strongcyan')
         })
+        custom.value = ""
         peopleCount = Number(people.value)
         if (isNaN(peopleCount)){
             warning.innerHTML = "number only";
@@ -44,7 +45,8 @@ document.querySelectorAll('.percent').forEach((percent) => {
 
 custom.addEventListener('change', () => {
     tipPercent = Number(custom.value);
-    if(isNaN(customValue)){
+    console.log(tipPercent)
+    if(isNaN(tipPercent)){
         alert("Input a numeric figure")
     }
     peopleCount = Number(people.value)
@@ -65,6 +67,13 @@ custom.addEventListener('change', () => {
     total = (((tipPercent/100) * billValue * peopleCount) + billValue).toFixed(2)        
     tipAmount.innerHTML = `$${tip}`;
     totalAmount.innerHTML = `$${total}`;
+})
+
+custom.addEventListener('click', () => {
+    document.querySelectorAll('.percent').forEach((percent) => {
+        percent.classList.remove('bg-strongcyan')
+    })
+    tipPercent = 0
 })
 
 bill.addEventListener('change',() => {
